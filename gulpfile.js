@@ -30,7 +30,7 @@ gulp.task('less', function () {
 gulp.task('compress', function() {
     gulp.src('./src/js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest('./build/js'));
 });
 
 
@@ -55,7 +55,7 @@ gulp.task('build', function() {
     runSequence(
         'less',
         function() {
-            console.log('built ok')
+            console.log('built ok');
         });
 
 });
