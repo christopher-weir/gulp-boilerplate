@@ -33,6 +33,18 @@ gulp.task('compress', function() {
 });
 
 
+gulp.task('minify-html', function() {
+    var opts = {
+        comments    : true,
+        spare       : true
+    };
+
+  gulp.src('./src/html/*.html')
+    .pipe(minifyHTML(opts))
+    .pipe(gulp.dest('./app/'))
+});
+
+
 /*
     WATCH
 */
@@ -41,7 +53,7 @@ gulp.task('watch', function() {
     // Watch the less files
     gulp.watch('./src/less/*.less', ['less']);
     gulp.watch('./src/js/*.js', ['compress']);
-
+    gulp.watch('./src/html/*.html', ['minify-html']);
 
 });
 
