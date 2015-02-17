@@ -13,7 +13,6 @@ gulp.task('webserver', function() {
   gulp.src('app')
     .pipe(webserver({
       livereload: true,
-      directoryListing: true,
       open: true
     }));
 });
@@ -24,13 +23,13 @@ gulp.task('less', function () {
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
-    .pipe(gulp.dest('./build/css'));
+    .pipe(gulp.dest('./app/css'));
 });
 
 gulp.task('compress', function() {
     gulp.src('./src/js/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./build/js'));
+        .pipe(gulp.dest('./app/js'));
 });
 
 
